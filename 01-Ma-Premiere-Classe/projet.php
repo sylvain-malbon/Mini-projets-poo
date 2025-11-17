@@ -85,7 +85,47 @@
 // 🎯 Prochaine étape : Projet 02 - Le Constructeur
 //
 
+//Sans constructeur ni accolades :
+// classe
+class Voiture
+{
+    public $marque;
+    public $couleur;
+    public $vitesseMax;
 
+    public function demarrer()
+    {
+        echo "🚗 Vrooooom ! La $this->marque démarre.\n";
+    }
+
+    public function klaxonner()
+    {
+        echo "🎺 POUET POUET ! $this->couleur.\n";
+    }
+}
+
+// création d'objets
+$ferrari = new Voiture();
+$ferrari->marque = "Ferrari";
+$ferrari->couleur = "rouge";
+$ferrari->vitesseMax = 320;
+
+$twingo = new Voiture();
+$twingo->marque = "Twingo Renault";
+$twingo->couleur = "jaune";
+$twingo->vitesseMax = 150;
+
+// test des objets créés
+$ferrari->demarrer();
+$ferrari->klaxonner();
+echo $ferrari->vitesseMax . "\n";
+
+$twingo->demarrer();
+$twingo->klaxonner();
+echo "Vitesse max : " . $twingo->vitesseMax . " km/h\n";
+
+
+/* Avec constructeur et accolades :
 class Voiture
 {
     public $marque;
@@ -101,12 +141,12 @@ class Voiture
 
     public function demarrer()
     {
-        echo "🚗 Vrooooom ! La {$this->marque} démarre .\n";
+        echo "🚗 Vrooooom ! La {$this->marque} démarre.\n";
     }
 
     public function klaxonner()
     {
-        echo "🎺 POUET POUET ! {$this->couleur} . \n";
+        echo "🎺 POUET POUET ! {$this->couleur}.\n";
     }
 }
 
@@ -119,4 +159,4 @@ echo $ferrari->vitesseMax . "\n";
 
 $twingo->demarrer();
 $twingo->klaxonner();
-echo $twingo->vitesseMax . "\n";
+echo "Vitesse max : " . $twingo->vitesseMax . " km/h\n"; */
