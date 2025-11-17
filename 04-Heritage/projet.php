@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 🐕 PROJET 04 : L'HÉRITAGE
  * Concept : Héritage (extends) - réutiliser du code
@@ -84,3 +85,68 @@
 // 🎯 Prochaine étape : Projet 05 - Le Polymorphisme (même méthode, comportements différents)
 //
 ?>
+
+<?php
+class Animal
+{
+    // "protected" : pour que les classes enfants y aient accès
+    protected $nom;
+    public function __construct($nom)
+    {
+        $this->nom = $nom;
+    }
+    public function manger()
+    {
+        echo "🍖 {$this->nom} mange...\n";
+    }
+    public function dormir()
+    {
+        echo  "😴 {$this->nom} dort... Zzz\n";
+    }
+}
+
+class Chien extends Animal
+{
+    public function aboyer()
+    {
+        echo "🐕 {$this->nom} : WOOF WOOF !\n";
+    }
+}
+
+class Chat extends Animal
+{
+    public function miauler()
+    {
+        echo "🐈 {$this->nom} : MIAOU !\n";
+    }
+}
+
+class Oiseau extends Animal
+{
+    public function voler()
+    {
+        echo "🦅 {$this->nom} vole dans le ciel !\n";
+    }
+}
+
+$rex = new Chien("Rex");
+$minou = new Chat("Minou");
+$tweety = new Oiseau("Tweety");
+
+$rex->manger();
+$rex->dormir();
+$rex->aboyer();
+$rex->miauler();
+$rex->voler();
+
+$minou->manger();
+$minou->dormir();
+$minou->aboyer();
+$minou->miauler();
+$minou->voler();
+
+$tweety->manger();
+$tweety->dormir();
+$tweety->aboyer();
+$tweety->miauler();
+$tweety->voler();
