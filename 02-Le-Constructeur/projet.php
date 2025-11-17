@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 🏗️ PROJET 02 : LE CONSTRUCTEUR MAGIQUE
  * Concept : Constructeur __construct()
@@ -77,3 +78,36 @@
 // 🎯 Prochaine étape : Projet 03 - Public vs Private (Encapsulation)
 //
 ?>
+
+
+<?php
+class CompteBancaire
+{
+    public $titulaire;
+    public $solde;
+    public function __construct($titulaire, $soldeInitial)
+    {
+        $this->titulaire = $titulaire;
+        $this->solde = $soldeInitial;
+        echo "✅ Compte créé pour {$this->titulaire} avec {$this->solde}€\n";
+    }
+
+    public function deposer($montant)
+    {
+        $this->solde += $montant;
+        echo "💰 Dépôt de {$montant}€\n";
+    }
+
+    public function afficherSolde()
+    {
+        echo "💰 Solde de {$this->titulaire} : {$this->solde}€\n";
+    }
+}
+
+$compteJean = new CompteBancaire("Jean", 1000);
+$compteMarie = new CompteBancaire("Marie", 500);
+
+$compteJean->deposer(200);
+$compteMarie->deposer(200);
+$compteJean->afficherSolde();
+$compteMarie->afficherSolde();
