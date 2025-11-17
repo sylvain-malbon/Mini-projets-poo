@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 🎸 PROJET 05 : LE POLYMORPHISME
  * Concept : Polymorphisme (même méthode, comportements différents)
@@ -75,3 +76,51 @@
 // 🎯 Prochaine étape : Projet 06 - Classes Abstraites (forcer l'implémentation)
 //
 ?>
+
+<?php
+class Instrument
+{
+    protected $nom;
+    public function __construct($nom)
+    {
+        $this->nom = $nom;
+    }
+    public function jouer()
+    {
+        echo "🎵 {$this->nom} joue de la musique...\n";
+    }
+}
+
+class Guitare extends Instrument
+{
+    public function jouer()
+    {
+        echo "🎸 {$this->nom} : GLING GLING GLING ♪\n";
+    }
+}
+
+class Piano extends Instrument
+{
+    public function jouer()
+    {
+        echo "🎹 {$this->nom} : PLONK PLONK PLONK ♫\n";
+    }
+}
+
+class Batterie extends Instrument
+{
+    public function jouer()
+    {
+        echo "🥁 {$this->nom} : BOOM BOOM CRASH ♪♫\n";
+    }
+}
+
+$orchestre = [
+    $fender = new Guitare("Fender"),
+    $yamaha = new Piano("Yamaha"),
+    $pearl = new Batterie("Pearl")
+];
+
+foreach ($orchestre as $instrument) {
+    $instrument->jouer();
+}
