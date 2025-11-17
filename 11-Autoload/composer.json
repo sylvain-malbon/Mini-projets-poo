@@ -1,0 +1,15 @@
+{
+    "name": "hp/11-autoload",
+    "autoload": {
+        "psr-4": {
+            "app\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "sylvain-malbon",
+            "email": "sylvain.malbon@laplateforme.io"
+        }
+    ],
+    "require": {}
+}

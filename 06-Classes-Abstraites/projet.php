@@ -78,3 +78,53 @@
 // 🎯 Prochaine étape : Projet 07 - Interfaces (contrat 100% strict)
 //
 ?>
+
+
+<?php
+abstract class Forme {
+protected $nom;
+public function __construct() {
+$this->nom = $nom;
+}
+//ne pas oublier "public" après "abstract" car méthode != classe
+abstract public function calculerAire();
+
+// - Méthode NORMALE afficher() qui affiche nom et aire
+function afficher() {
+    echo "$this->nom\n";
+    echo "$this->aire\n";
+}
+
+//doit stocker rayon (à vérifier dans consigne)
+class Cercle extends Forme {
+private $rayon;
+
+function __construct($rayon){ 
+parent::__construct("Cercle"); 
+$this->rayon = $rayon;
+}
+ /*
+IMPLÉMENTER calculerAire() : return pi() * $rayon * $rayon;
+
+Indice : Tu DOIS implémenter calculerAire(), sinon erreur !
+
+classe Rectangle extends Forme
+// - Propriétés private $largeur, $hauteur
+// - Constructeur
+// - Implémenter calculerAire() : return $largeur * $hauteur;
+
+
+
+
+// ─────────────────────────────────────────────────────────────────────────
+// TODO 4 : Créer et tester des formes
+// ─────────────────────────────────────────────────────────────────────────
+//
+// Crée :
+// - Un cercle de rayon 5
+// - Un rectangle de 10 × 20
+//
+// Affiche l'aire de chacun avec afficher()
+//
+// Essaie de créer une Forme directement :
+// $forme = new Forme("Test");  ← Ça va planter ! C'est normal.
