@@ -1,4 +1,5 @@
 <?php
+
 /**
  * 🚗 PROJET 01 : MA PREMIÈRE CLASSE
  * Concept : Classes & Objets
@@ -83,4 +84,39 @@
 //
 // 🎯 Prochaine étape : Projet 02 - Le Constructeur
 //
-?>
+
+
+class Voiture
+{
+    public $marque;
+    public $couleur;
+    public $vitesseMax;
+
+    public function __construct($marque, $couleur, $vitesseMax)
+    {
+        $this->marque = $marque;
+        $this->couleur = $couleur;
+        $this->vitesseMax = $vitesseMax;
+    }
+
+    public function demarrer()
+    {
+        echo "🚗 Vrooooom ! La {$this->marque} démarre .\n";
+    }
+
+    public function klaxonner()
+    {
+        echo "🎺 POUET POUET ! {$this->couleur} . \n";
+    }
+}
+
+$ferrari = new Voiture("Ferrari", "Rouge", 320);
+$twingo = new Voiture("Renault Twingo", "Jaune", 150);
+
+$ferrari->demarrer();
+$ferrari->klaxonner();
+echo $ferrari->vitesseMax . "\n";
+
+$twingo->demarrer();
+$twingo->klaxonner();
+echo $twingo->vitesseMax . "\n";
