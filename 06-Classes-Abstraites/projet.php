@@ -83,48 +83,53 @@
 <?php
 abstract class Forme {
 protected $nom;
-public function __construct() {
+public function __construct($nom) {
 $this->nom = $nom;
 }
-//ne pas oublier "public" après "abstract" car méthode != classe
+
 abstract public function calculerAire();
 
-// - Méthode NORMALE afficher() qui affiche nom et aire
-function afficher() {
-    echo "$this->nom\n";
-    echo "$this->aire\n";
+public function afficher() {
+    echo "Forme : {$this->nom}.\n";
+    echo "Aire : {$this->calculerAire()}.\n";
+}
 }
 
-//doit stocker rayon (à vérifier dans consigne)
-class Cercle extends Forme {
+class Cercle extends Forme
+{
 private $rayon;
 
 function __construct($rayon){ 
 parent::__construct("Cercle"); 
 $this->rayon = $rayon;
 }
- /*
-IMPLÉMENTER calculerAire() : return pi() * $rayon * $rayon;
 
-Indice : Tu DOIS implémenter calculerAire(), sinon erreur !
+public function calculerAire(){
+    return pi() * $this->rayon * $this->rayon;
+}
+}
 
-classe Rectangle extends Forme
-// - Propriétés private $largeur, $hauteur
-// - Constructeur
-// - Implémenter calculerAire() : return $largeur * $hauteur;
+class Rectangle extends Forme
+{
+private $largeur;
+private $hauteur;
+public function __construct($largeur, $hauteur) {
+    parent::__construct("Rectangle"); 
+    $this->largeur = $largeur;
+    $this->hauteur = $hauteur;
+}
+public function calculerAire(){
+    return $this->largeur * $this->hauteur;
+}
+}
 
+$cercle1 = new Cercle(5);
+$rectangle1 = new Rectangle(10, 20);
 
+$cercle1->afficher();
+$rectangle1->afficher();
 
-
-// ─────────────────────────────────────────────────────────────────────────
-// TODO 4 : Créer et tester des formes
-// ─────────────────────────────────────────────────────────────────────────
-//
-// Crée :
-// - Un cercle de rayon 5
-// - Un rectangle de 10 × 20
-//
-// Affiche l'aire de chacun avec afficher()
-//
-// Essaie de créer une Forme directement :
-// $forme = new Forme("Test");  ← Ça va planter ! C'est normal.
+/* essais pour bug
+$forme = new Forme(5);
+$forme = new Forme(10,20);
+*/
