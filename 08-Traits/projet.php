@@ -86,4 +86,59 @@
 //
 // 🎯 Prochaine étape : Projet 09 - Static (propriétés et méthodes partagées)
 //
-?>
+
+
+trait Nageable {
+    public function nager() {
+        echo "🏊 {$this->nom} nage comme un poisson !\n";
+    }
+}
+
+trait Volant {
+    public function voler() { 
+        echo "🦅 {$this->nom} vole dans les airs !\n";
+    }
+}
+
+trait Invisible {
+    public function seRendreInvisible() {
+        echo "👻 {$this->nom} devient invisible !\n";
+    } 
+}
+
+class Guerrier {
+    use Nageable;
+    public $nom;
+
+    public function __construct($nom) {
+    $this->nom = $nom;
+    }
+
+    public function attaquer() {
+        echo "⚔️ {$this->nom} attaque avec son épée !\n";
+    }
+}
+
+class Magicien {
+    use Nageable, Volant, Invisible;
+    public $nom;
+
+    public function __construct($nom) {
+    $this->nom = $nom;
+    }
+
+    public function lancerSort() {
+        echo "🔮 {$this->nom} lance un sort !\n";
+    }
+}
+
+$conan = new Guerrier("Conan");
+$gandalf = new Magicien("Gandalf");
+
+$conan->attaquer();
+$conan->nager();
+
+$gandalf->lancerSort();
+$gandalf->voler();
+$gandalf->nager();
+$gandalf->seRendreInvisible();
