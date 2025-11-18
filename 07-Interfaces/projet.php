@@ -112,7 +112,7 @@ public function __construct($numero) {
 }
 
 public function payer($montant) { 
-    echo "💳 Paiement de {$montant}€ par carte ****[4 derniers chiffres]\n";
+    echo "💳 Paiement de {$montant}€ par carte ****" . substr($this->numero, -4) . "\n";
 }
 
 public function rembourser($montant) {
@@ -148,7 +148,7 @@ class Crypto implements PaymentInterface {
 }
 
 public function payer($montant) {
-    echo "₿ Paiement crypto de {$montant}€ depuis wallet [8 premiers caractères]...\n";
+    echo "₿ Paiement crypto de {$montant}€ depuis wallet" . substr($this->wallet, 0, 8) . "...\n";
 }
 
 public function rembourser($montant) {
